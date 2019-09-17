@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico1.leyenda}}</h4>
+                <app-grafico-dona [ChartLabels]="graficos.grafico1.labels" [ChartData]="graficos.grafico1.data"
+                    ChartType="doughnut"></app-grafico-dona>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico2.leyenda}}</h4>
+                <app-grafico-dona [ChartLabels]="graficos.grafico2.labels" [ChartData]="graficos.grafico2.data"
+                    ChartType="doughnut"></app-grafico-dona>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico3.leyenda}}</h4>
+                <app-grafico-dona [ChartLabels]="graficos.grafico3.labels" [ChartData]="graficos.grafico3.data"
+                    ChartType="doughnut"></app-grafico-dona>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico4.leyenda}}</h4>
+                <app-grafico-dona [ChartLabels]="graficos.grafico4.labels" [ChartData]="graficos.grafico4.data"
+                    ChartType="doughnut"></app-grafico-dona>
+            </div>
+        </div>
+    </div>
+</div>

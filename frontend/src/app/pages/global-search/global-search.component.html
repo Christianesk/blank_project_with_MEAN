@@ -1,0 +1,23 @@
+<!--Start Load Alert-->
+<app-load-alert *ngIf="loading"></app-load-alert>
+<!--End Load Alert-->
+<div class="row">
+    <div class="card-deck col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Usuarios</h4>
+                <table class="table table-hover" *ngIf="users.length > 0">
+                    <tbody>
+                        <tr *ngFor="let user of users" [routerLink]="['/usuarios']" class="pointer">
+                            <td class="w70">
+                                <img [src]="user.img | imagen" class="img-50 img-circle">
+                            </td>
+                            <td>{{user.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-info" *ngIf="users.length === 0">No existe registros</div>
+            </div>
+        </div>
+    </div>
+</div>

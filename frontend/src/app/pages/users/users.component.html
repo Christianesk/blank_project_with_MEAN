@@ -1,0 +1,71 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="searchUser(input.value)" type="text" class="form-control"
+                    placeholder="buscar usuario...">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Start Load Alert-->
+<app-load-alert *ngIf="loading"></app-load-alert>
+<!--End Load Alert-->
+
+<div class="row animated fadeIn" *ngIf="!loading">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Usuarios registrados (<small>{{totalRecords}}</small>)</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Email</th>
+                                <th>Nombre</th>
+                                <th>Role</th>
+                                <th>Auth</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <td class="w70">
+                                    <img (click)="viewModal(user._id)" [src]="user.img | imagen" class="img-50 img-circle pointer">
+                                </td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.name}}</td>
+                                <td>
+                                    <select [(ngModel)]="user.role" name="role" class="form-control">
+                                        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+                                        <option value="USER_ROLE">USER_ROLE</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label *ngIf="user.google" class="label label-danger">Google</label>
+                                    <label *ngIf="!user.google" class="label label-primary">Normal</label>
+                                </td>
+                                <td>
+                                    <button (click)="saveUser(user)" class="btn btn-primary">
+                                        <i class="fa fa-save"></i>
+                                    </button>
+                                    <button class="btn btn-danger " (click)="removeUser(user)">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button (click)="changeFrom(-5)" class="btn btn-secondary">
+                        Anteriores
+                    </button>
+                    <button (click)="changeFrom(5)" class="btn btn-secondary ml-2">
+                        Siguientes
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
